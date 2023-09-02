@@ -1,0 +1,188 @@
+#register,
+#login {
+  display: flex;
+  max-width: fit-content;
+  padding: 25px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #00bf63;
+  margin-top: -80px;
+}
+
+#loginRow {
+  width: 400px;
+}
+#App-Navbar{
+  z-index: 1;
+ 
+  background-color: white !important;
+  border-bottom: 2px solid black;
+  
+}
+.job-text{
+  background-color: #00bf63;
+  color: white;
+ 
+  padding:5px 20px 5px 20px;
+  font-size: x-large;
+  
+
+}
+
+
+.trending-jobs-card{
+  background-color: #000000;
+  margin-bottom: 10px;
+  max-width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  color: white;
+  border-radius: 15px;
+  cursor:pointer;
+}
+
+.trending-jobs-card:hover{
+  background-color:#00bf63 ;
+}
+
+
+
+
+.nest-text{
+  color: black;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#navbar-brand{
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 5px 5px 5px 5px;
+
+}
+.navbar-logo {
+  width: auto; /* Allow the logo to maintain its original width */
+  height: 40px; /* Set a fixed height to control the logo's size */
+  margin-right: 10px; /* Add spacing between the logo and other Navbar content */
+}
+#nav-links:hover{
+  color: #000000 !important;
+  position: relative;
+  bottom: 2px;
+}
+
+
+.search-bar {
+  position: absolute;
+  bottom: 50%;
+
+}
+
+.fa-search.search,.fa-map-marker.loc {
+  position: relative;
+  right: 30px;
+}
+
+
+
+.card-container-css{
+  border-left:3px solid #00bf63;
+  border-radius: 6px;
+}
+.job-cards:hover{
+ box-shadow: 2px 2px 20px rgb(195, 192, 192);
+}
+
+
+#search-bar-text {
+  position: relative;
+  left: 50%;
+  bottom: 500px;
+}
+#register-img-wrapper{
+  margin-top: -60px;
+}
+
+
+
+.wrapper {
+  background-image: url('./img/mainBackground.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 70vh;
+  filter: brightness(0.1);
+}
+
+#tagline-text {
+  width: 100%;
+  max-width: 450px;
+
+  margin: 0 auto;
+
+  text-align: center;
+
+  position: relative;
+  top: 30px;
+}
+
+#tagline-text img {
+  width: 100%;
+  height: 150px;
+  /* Adjust the height as needed */
+  object-fit: cover;
+
+  /* Maintain aspect ratio while covering the container */
+}
+
+
+
+input {
+  padding: 10px;
+}
+
+#registerHeading {
+  position: relative;
+  bottom: 130px;
+}
+
+
+
+.input-container {
+  position: relative;
+}
+
+
+
+.label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-right: 50px;
+  padding: 0 5px;
+  color: #000000;
+  pointer-events: none;
+  /* Prevent the label from being clickable */
+}
+
+
+
+@media (max-width:750px) {
+
+  #register,
+  #login {
+    max-width: 85%;
+    padding: 20px;
+  
+  }
+
+
+  
+}
