@@ -12,7 +12,7 @@ const UserSchema = new Schema({
     },
     contact:{
         type:Number,
-        unique : true,
+        
         required:true,
     },
     email:{
@@ -24,6 +24,7 @@ const UserSchema = new Schema({
         type: String,
         required:[true,"Please enter your password"]
     }
+    
 })
 
 const User = mongoose.model("user",UserSchema);
