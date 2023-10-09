@@ -3,13 +3,14 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const User = require('./models/User');
-
+const { DBRef } = require('mongodb');
+const db = "mongodb+srv://muneebsurrehman:muneeb123.@cluster0.9cm4itv.mongodb.net/JobNest_DB?retryWrites=true&w=majority&appName=AtlasApp";
 let PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 //connect to mongodb atlas database
-mongoose.connect('mongodb://127.0.0.1:27017/jobMingle');
+mongoose.connect(db).then(()=>{console.log('connection successful')} ).catch((err)=>{console.log('error in connection')});
 
 
 app.post('/api/register',async(req,res)=>{
