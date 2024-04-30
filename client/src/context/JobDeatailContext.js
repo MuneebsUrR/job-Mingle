@@ -6,7 +6,7 @@ export const JobDetailState = ({ children }) => {
   const [what, setwhat] = useState("");
   const [where, setwhere] = useState("");
   const [page, setPage] = useState(1);
-
+  const [loginUser,setLoginUser] = useState(null);
   async function fetchDatafromAPI() {
     
 
@@ -56,6 +56,8 @@ export const JobDetailState = ({ children }) => {
         setJobDetails,
         allJobsData,
         setAllJobsData,
+        setLoginUser,
+        loginUser,
       }}
     >
       {" "}

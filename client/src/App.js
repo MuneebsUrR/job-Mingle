@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Register from './components/Register';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes,Redirect } from 'react-router-dom';
 import { JobDetailState } from './context/JobDeatailContext';
 
 function App() {
@@ -14,9 +14,9 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route exact path='/register' element={<Register />} />
+        <Route exact path='/' element={<Register />} />
         <Route exact path='/login' element={<Login />} />
-        <Route path='/' element={<Redirect to="/home" />} />
+        <Route path='/home' element={<Home />} />
       </Routes>
         
       </JobDetailState>

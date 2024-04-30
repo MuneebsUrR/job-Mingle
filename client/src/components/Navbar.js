@@ -3,9 +3,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../App.css'
 import { Link } from 'react-router-dom';
+import { useJobDetailContext } from '../context/JobDeatailContext';
 
 function AppNavbar() {
-
+  const { loginUser } = useJobDetailContext();
   const handleCLick = () => {
     console.log('clicked')
   }
@@ -18,16 +19,10 @@ function AppNavbar() {
         <Navbar.Toggle id='navbar-button' aria-controls="responsive-navbar-nav" onClick={handleCLick} />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link style={{ color: '#00bf63' }} id='nav-links' className='fs-5 mx-2' to="/">Features</Link>
-            <Link style={{ color: '#00bf63' }} id='nav-links' className='fs-5 mx-2' to="/">Pricing</Link>
-            <Link style={{ color: '#00bf63' }} id='nav-links' className='fs-5 mx-2' to="/">dummy</Link>
-
+            
           </Nav>
           <Nav>
-           <Link to="/login"><button className='btn btn-dark  w-100'>Login</button></Link>
-            <Link  to="/register">
-             <button className='btn btn-outline-dark w-100'>Signup</button>
-            </Link>
+           Welcome {loginUser}
           </Nav>
         </Navbar.Collapse>
       </Container>
