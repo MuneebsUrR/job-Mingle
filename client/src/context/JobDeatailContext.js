@@ -6,7 +6,8 @@ export const JobDetailState = ({ children }) => {
     const [what, setwhat] = useState('');
     const [where, setwhere] = useState('');
     async function fetchDatafromAPI() {
-        let url = `https://jsearch.p.rapidapi.com/search?query=${what} in ${where}&page=1&num_pages=2`;
+      let url = `https://jsearch.p.rapidapi.com/search?query=${what} in ${where}&page=2&num_pages=20`;
+    
         try {
     
           let response = await fetch(url, {
@@ -17,7 +18,6 @@ export const JobDetailState = ({ children }) => {
             }
           });
           let data = await response.json();
-          // setjobsData(data.data);
     
           setAllJobsData(data.data);
           console.log(data);
