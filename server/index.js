@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const User = require('./models/User');
 const { DBRef } = require('mongodb');
-const db = "mongodb+srv://muneebsurrehman:muneeb123.@cluster0.9cm4itv.mongodb.net/JobNest_DB?retryWrites=true&w=majority&appName=AtlasApp";
+const db = "mongodb+srv://muneebsurrehman:w2RtxV250m9oRMl7@cluster0.9cm4itv.mongodb.net/jobemingle";
 let PORT = process.env.PORT || 5000;
 
 app.use(cors());
