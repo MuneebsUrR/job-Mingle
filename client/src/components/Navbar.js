@@ -22,7 +22,7 @@ function AppNavbar() {
             
           </Nav>
           <Nav>
-           Welcome {loginUser}
+          <p className='font-weight-bold'>Welcome {loginUser}</p> 
           </Nav>
         </Navbar.Collapse>
       </Container>

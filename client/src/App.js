@@ -6,6 +6,8 @@ import Navbar from './components/Navbar';
 import Register from './components/Register';
 import { Route, Routes,Redirect } from 'react-router-dom';
 import { JobDetailState } from './context/JobDeatailContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
