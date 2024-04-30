@@ -11,8 +11,8 @@ export default function Home() {
   
   const { fetchDatafromAPI, what, where,setwhat, setwhere, allJobsData, setAllJobsData } = useJobDetailContext();
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
-   
  
+  fetchDatafromAPI();
   const handleSubmit = async (e) => {
     e.preventDefault();
     await fetchDatafromAPI();

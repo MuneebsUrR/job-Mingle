@@ -6,13 +6,15 @@ export const JobDetailState = ({ children }) => {
   const [what, setwhat] = useState("");
   const [where, setwhere] = useState("");
   const [page, setPage] = useState(1);
-  const [loginUser,setLoginUser] = useState(null);
+  const [loginUser, setLoginUser] = useState(null);
+  const [loading,setLoading]=useState(false);
   async function fetchDatafromAPI() {
     
 
     let url = `https://jsearch.p.rapidapi.com/search?query=${what} in ${where}&page=${page}&num_pages=20`;
 
     try {
+      setLoading(false);
       let response = await fetch(url, {
         method: "GET",
         headers: {
@@ -34,6 +36,7 @@ export const JobDetailState = ({ children }) => {
       let data = await response.json();
 
       setAllJobsData(data.data);
+      setLoading(true);
       console.log(data);
     } catch (error) {
       console.log(error);

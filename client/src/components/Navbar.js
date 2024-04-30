@@ -4,11 +4,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import '../App.css'
 import { Link } from 'react-router-dom';
 import { useJobDetailContext } from '../context/JobDeatailContext';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function AppNavbar() {
   const { loginUser } = useJobDetailContext();
   const handleCLick = () => {
-    console.log('clicked')
+   
   }
   return (
     <Navbar id='App-Navbar' collapseOnSelect expand="lg" className="bg-body-tertiary">
@@ -21,9 +21,11 @@ function AppNavbar() {
           <Nav className="me-auto">
             
           </Nav>
-          <Nav>
-          <p className='font-weight-bold'>Welcome {loginUser}</p> 
-          </Nav>
+          {loginUser && loginUser.length > 0 &&
+            <Nav>
+              <p className='fw-bold'>  Welcome {loginUser}</p>
+            </Nav>
+          }
         </Navbar.Collapse>
       </Container>
     </Navbar>

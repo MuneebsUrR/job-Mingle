@@ -4,7 +4,7 @@ import logo from '../img/logo.png'
 import '../App.css'
 import { useJobDetailContext } from '../context/JobDeatailContext'
 export default function Register() {
-    const { setLoginUser } = useJobDetailContext();
+    const { setLoginUser,fetchDatafromAPI } = useJobDetailContext();
     
     const navigate = useNavigate();
     const [credentials, setcredentials] = useState({
@@ -32,6 +32,7 @@ export default function Register() {
         const data = await response.json()
         if (data.status === 'ok') {
             setLoginUser(credentials.email)
+            
             navigate('/home')
 
         } else if (!response.ok) { alert('Please Enter a valid email address and password') }
