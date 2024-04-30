@@ -5,13 +5,14 @@ import '../App.css'
 import searchbar from '../img/searchbar.png'
 import JobDetails from './JobDetails';
 import {  useJobDetailContext } from '../context/JobDeatailContext';
-
+import Loader from './Loader';
 
 export default function Home() {
   
-  const { fetchDatafromAPI, what, where,setwhat, setwhere, allJobsData, setAllJobsData } = useJobDetailContext();
+  const { fetchDatafromAPI, what, where,setwhat, setwhere, allJobsData,loading } = useJobDetailContext();
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
-   
+
+
  
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,11 +26,16 @@ export default function Home() {
   };
   return (
     <>
+      {loading && <Loader />}
 
-      <div className="wrapper">
+      {!loading &&
 
-      </div>
+        <div className="wrapper">
 
+        </div>
+      }
+
+      {!loading && 
       <div className="container-fluid search-bar">
         <div className="row" id='tagline-text'>
           <div className="col-12 ">
@@ -72,41 +78,42 @@ export default function Home() {
 
           </div>
         </form>
-      </div>
+      </div> 
+      }
+      
+      {!loading &&
+        <div className="container">
+          <div className="row">
+            <div  className="col-md-5" id='jobsdata'>
+              {
 
-      <div className="container">
-        <div className="row">
-          <div className="col-md-5">
-            {
+                allJobsData && allJobsData.length > 0 && allJobsData.map(
+                  (data, index) => {
+                    return (
+                      <div
+                        className={`job-cards ${selectedCardIndex === index ? 'card-container-css' : ''
+                          }`}
+                        id="job-cards"
+                        key={data.job_apply_link}
+                        onClick={() => handleCardClick(index)}
+                      >
 
-              allJobsData.length > 0 && allJobsData.map(
-                (data,index) => {
-                  return (
-                    <div
-                    className={`job-cards ${
-                      selectedCardIndex === index ? 'card-container-css' : ''
-                    }`}
-                    id="job-cards"
-                    key={data.job_apply_link}
-                    onClick={() => handleCardClick(index)}
-                  >
+                        <JobItems job_id_no={data.job_id} highlights={data.job_highlights} employer_web={data.employer_website} job_employment_type={data.job_employment_type} salary_currency={data.job_salary_currency} min_salary={data.job_min_salary} max_salary={data.job_max_salary} job_remote={data.job_is_remote} job_publisher={data.job_publisher} employer_name={data.employer_name} employer_logo={data.employer_logo} job_id={data.job_id} job_city={data.job_city} job_country={data.job_country} job_title={data.job_title} job_description={data.job_description} job_apply_link={data.job_apply_link} />
+                      </div>
+                    )
+                  }
+                )
 
-                      <JobItems job_id_no= {data.job_id} highlights={data.job_highlights} employer_web={data.employer_website} job_employment_type={data.job_employment_type} salary_currency = {data.job_salary_currency} min_salary = {data.job_min_salary} max_salary = {data.job_max_salary} job_remote={data.job_is_remote} job_publisher = {data.job_publisher} employer_name = {data.employer_name} employer_logo = {data.employer_logo} job_id={data.job_id} job_city={data.job_city} job_country={data.job_country} job_title={data.job_title} job_description={data.job_description} job_apply_link={data.job_apply_link} />
-                    </div>
-                  )
-                }
-              )
+              }
 
-            }
+            </div>
+            <div className="col-md-7" id='jobsdata'>
+              <JobDetails />
+            </div>
 
           </div>
-          <div className="col-md-7">
-            <JobDetails />
-          </div>
-
         </div>
-      </div>
-
+      }
     </>
   );
 }

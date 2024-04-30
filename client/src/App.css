@@ -172,6 +172,13 @@ input {
   /* Prevent the label from being clickable */
 }
 
+#jobsdata{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  height: 100vh;
+  overflow: auto;
+}
+
 
 
 @media (max-width:750px) {
