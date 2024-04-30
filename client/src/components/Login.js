@@ -32,7 +32,7 @@ export default function Register() {
         const data = await response.json()
         if (data.status === 'ok') {
             setLoginUser(credentials.email)
-     
+            fetchDatafromAPI();
             navigate('/home')
 
         } else if (!response.ok) { alert('Please Enter a valid email address and password') }

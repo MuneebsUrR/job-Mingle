@@ -14,6 +14,15 @@ export const JobDetailState = ({ children }) => {
     let url = `https://jsearch.p.rapidapi.com/search?query=${what} in ${where}&page=${page}&num_pages=20`;
 
     try {
+      const queryParameters = new URLSearchParams(window.location.search);
+      queryParameters.set("what", what);
+      queryParameters.set("where", where);
+      queryParameters.set("page", page);
+      window.history.replaceState(
+        {},
+        "",
+        `${window.location.pathname}?${queryParameters}`
+  );
       setLoading(true);
       let response = await fetch(url, {
         method: "GET",
@@ -22,15 +31,7 @@ export const JobDetailState = ({ children }) => {
           'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
         }
       });
-      const queryParameters = new URLSearchParams(window.location.search);
-          queryParameters.set("what", what);
-          queryParameters.set("where", where);
-          queryParameters.set("page", page);
-          window.history.replaceState(
-            {},
-            "",
-            `${window.location.pathname}?${queryParameters}`
-      );
+   
       
       let data = await response.json();
 

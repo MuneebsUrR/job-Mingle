@@ -11,10 +11,7 @@ export default function Home() {
   
   const { fetchDatafromAPI, what, where,setwhat, setwhere, allJobsData,loading } = useJobDetailContext();
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
-  useEffect(() => {
-    console.log("ninja")
-    fetchDatafromAPI();
-}, [])
+
 
  
   const handleSubmit = async (e) => {
@@ -87,7 +84,7 @@ export default function Home() {
       {!loading &&
         <div className="container">
           <div className="row">
-            <div className="col-md-5">
+            <div  className="col-md-5" id='jobsdata'>
               {
 
                 allJobsData && allJobsData.length > 0 && allJobsData.map(
@@ -110,7 +107,7 @@ export default function Home() {
               }
 
             </div>
-            <div className="col-md-7">
+            <div className="col-md-7" id='jobsdata'>
               <JobDetails />
             </div>
 
