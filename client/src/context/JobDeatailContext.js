@@ -14,14 +14,13 @@ export const JobDetailState = ({ children }) => {
     let url = `https://jsearch.p.rapidapi.com/search?query=${what} in ${where}&page=${page}&num_pages=20`;
 
     try {
-      setLoading(false);
+      setLoading(true);
       let response = await fetch(url, {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "58ce39cc1amsha4354a3355d61d5p15a347jsn0f6c11dcc7da",
-          "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
-        },
+          'X-RapidAPI-Key': 'cc1fdff712msh3a770f9d4570ad9p1de9fejsn30a7d50aeb5f',
+          'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+        }
       });
       const queryParameters = new URLSearchParams(window.location.search);
           queryParameters.set("what", what);
@@ -36,7 +35,7 @@ export const JobDetailState = ({ children }) => {
       let data = await response.json();
 
       setAllJobsData(data.data);
-      setLoading(true);
+      setLoading(false);
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -61,6 +60,7 @@ export const JobDetailState = ({ children }) => {
         setAllJobsData,
         setLoginUser,
         loginUser,
+        loading,
       }}
     >
       {" "}

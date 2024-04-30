@@ -27,7 +27,7 @@ const JobDetails = () => {
 
     return ( 
         <>
-        { allJobsData.length>0 &&
+        { allJobsData &&  allJobsData.length>0 &&
 
         <div className='card my-4' >
            

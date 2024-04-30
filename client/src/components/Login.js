@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../img/logo.png'
 import '../App.css'
 import { useJobDetailContext } from '../context/JobDeatailContext'
 export default function Register() {
     const { setLoginUser,fetchDatafromAPI } = useJobDetailContext();
-    
+ 
     const navigate = useNavigate();
     const [credentials, setcredentials] = useState({
         email: '',
@@ -32,7 +32,7 @@ export default function Register() {
         const data = await response.json()
         if (data.status === 'ok') {
             setLoginUser(credentials.email)
-            
+     
             navigate('/home')
 
         } else if (!response.ok) { alert('Please Enter a valid email address and password') }
