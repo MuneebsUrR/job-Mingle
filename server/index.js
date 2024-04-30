@@ -9,7 +9,7 @@ let PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 //connect to mongodb atlas database
-mongoose.connect('mongodb://127.0.0.1:27017/jobMingle');
+mongoose.connect('mongodb+srv://muneebsurrehman:w2RtxV250m9oRMl7@cluster0.9cm4itv.mongodb.net/jobemingle');
 
 
 app.post('/api/register',async(req,res)=>{
