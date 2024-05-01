@@ -12,7 +12,6 @@ app.use(express.json());
 //connect to mongodb atlas database
 mongoose.connect(db).then(()=>{} ).catch((err)=>{});
 
-
 app.post('/api/register',async(req,res)=>{
    
 
