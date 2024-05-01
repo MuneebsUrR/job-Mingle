@@ -43,50 +43,13 @@ export default function Register() {
                     console.log(data)
         }
     })
-    // const [credentials, setcredentials] = useState({
-    //     firstname: '',
-    //     lastname: '',
-    //     contact: '',
-    //     email: '',
-    //     password: '',
-    //     confirmpassword:'',
-    // });
-    // const onchange = (e) => {
-    //     setcredentials({ ...credentials, [e.target.name]: e.target.value })
-    // }
-    // const HandleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const response = await fetch('http://127.0.0.1:5000/api/register', {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(
-    //             {
-    //                 firstname: credentials.firstname,
-    //                 lastname: credentials.lastname,
-    //                 contact: credentials.contact,
-    //                 email: credentials.email,
-    //                 password: credentials.password,
-    //             }
-    //         )
-    //     })
-
-    //     const data = await response.json()
-    //     if (data.status === 'ok') {
-    //         navigate('/login')
-    //     } else if (!response.ok) { alert('User already exist') }
-    //     console.log(data)
-    // }
-
+ 
     return (
         <>
 
-            <div className="col-12 text-center" id='register-img-wrapper' >
-                <img src={logo} alt="logo" style={{ width: '250px', height: '250px' }} id='logo' />
-            </div>
+        
 
-            <div className='container' id='register'>
+            <div className='container' id='register' style={{marginTop:'30px'}}>
 
 
 
