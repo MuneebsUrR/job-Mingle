@@ -43,11 +43,9 @@ export default function Register() {
         <>
             <>
 
-                <div className="col-12 text-center" id='img-wrapper' >
-                    <img className='img-fluid' src={logo} alt="logo" style={{ width: '250px', height: '250px' }} id='logo' />
-                </div>
+                
 
-                <div className='container' id='login'>
+                <div className='container' id='login' style={{marginTop:'60px'}}>
 
 
 
