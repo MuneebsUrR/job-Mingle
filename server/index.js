@@ -10,11 +10,11 @@ let PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 //connect to mongodb atlas database
-mongoose.connect(db).then(()=>{} ).catch((err)=>{});
+mongoose.connect(db).then(()=>{console.log("Connection established")} ).catch((err)=>{console.log(err)});
 
 app.post('/api/register',async(req,res)=>{
    
-
+    console.log(req)
     try {
         const CheckExistingUser =await User.findOne({email:req.body.email , contact:req.body.contact})
         if(CheckExistingUser){return res.status(400).json( {error:"user with this email already exist"}) }
@@ -37,7 +37,7 @@ app.post('/api/register',async(req,res)=>{
 })
 
 app.post('/api/login',async(req,res)=>{
-   
+    console.log(req)
     try {
         const user =await User.findOne({
             email : req.body.email,
@@ -56,5 +56,5 @@ app.post('/api/login',async(req,res)=>{
 })
 
 app.listen(PORT,()=>{
-   
+   console.log("Server is running on port 5000")
 })
