@@ -2,13 +2,19 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../App.css'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useJobDetailContext } from '../context/JobDeatailContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function AppNavbar() {
-  const { loginUser } = useJobDetailContext();
+  const { loginUser,setLoginUser } = useJobDetailContext();
   const handleCLick = () => {
    
+  }
+  const navigate = useNavigate();
+  
+  const handlelogoutbtn = () => {
+    setLoginUser('')
+    navigate('/')
   }
   return (
     <Navbar id='App-Navbar' collapseOnSelect expand="lg" className="bg-body-tertiary">
@@ -24,8 +30,18 @@ function AppNavbar() {
           {loginUser && loginUser.length > 0 &&
             <Nav>
               <p className='fw-bold'>  Welcome {loginUser}</p>
+              
             </Nav>
+
+          
           }
+          {loginUser && loginUser.length > 0 &&
+           <Nav>
+           <button onClick={handlelogoutbtn} type="button" className=' mx-2 btn btn-dark'>Logout</button>
+          </Nav>
+          
+          }
+            
         </Navbar.Collapse>
       </Container>
     </Navbar>
