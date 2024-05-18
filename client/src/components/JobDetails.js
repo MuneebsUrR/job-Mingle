@@ -35,7 +35,7 @@ const JobDetails = () => {
                 <h4>Job Details</h4><hr />
                 <div className="header d-flex justify-content-between">
                 <h5 className='text-secondary'>{jobDetails.jobTitle}</h5>
-                <button className='btn btn-success'>Apply Now</button>
+                <button onClick={() => window.open(jobDetails.job_apply_link, '_blank')} className='btn btn-success'>Apply Now</button>
                 </div>
                {location()}
                {JobSalaryDetails()}<br />

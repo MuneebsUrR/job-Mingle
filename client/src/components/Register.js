@@ -20,7 +20,8 @@ export default function Register() {
         initialValues:intitialValues,
         validationSchema: signUpSchema,
         onSubmit: async (values)=>{
-            const response = await fetch('http://127.0.0.1:5000/api/register', {
+            const response = await fetch('https://job-mingle-server.vercel.app/register', {
+                
                         method: 'POST',
                         headers: {
                             "Content-Type": "application/json",

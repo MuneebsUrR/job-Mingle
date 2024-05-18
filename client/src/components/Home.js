@@ -6,12 +6,13 @@ import searchbar from '../img/searchbar.png'
 import JobDetails from './JobDetails';
 import {  useJobDetailContext } from '../context/JobDeatailContext';
 import Loader from './Loader';
+import useWindowSize from './useWindowSize';
 
 export default function Home() {
   
   const { fetchDatafromAPI, what, where,setwhat, setwhere, allJobsData,loading } = useJobDetailContext();
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
-
+  const windowSize = useWindowSize();
 
  
   const handleSubmit = async (e) => {
@@ -107,9 +108,12 @@ export default function Home() {
               }
 
             </div>
+
+            {windowSize.width >= 900 &&
             <div className="col-md-7" id='jobsdata'>
               <JobDetails />
             </div>
+            }   
 
           </div>
         </div>

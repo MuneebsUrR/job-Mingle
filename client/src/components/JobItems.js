@@ -56,6 +56,8 @@ export default function JobItems(props) {
        highlights:props.highlights,
        job_apply_link:props.job_apply_link,
       });
+
+    console.log(jobDetails);
      
         
   }
@@ -132,7 +134,7 @@ export default function JobItems(props) {
 
             <h6 className='fs-5 my-1 mx-1'>{props.job_title}</h6>
             <p className='mx-1 fw-bold'>{props.job_city ? (`${props.job_city}`) : ''} {props.job_city && <i className="fa fa-map-marker" aria-hidden="true"></i>}</p>
-            {JobSalaryDetail()}<br />
+            {/* {JobSalaryDetail()}<br /> */}
             {
               props.job_remote ? (<span className="badge rounded-pill bg-light text-dark">Remote</span>
               ) : ''
@@ -167,7 +169,7 @@ export default function JobItems(props) {
         <h4>Job Details</h4><hr />
         <div className="header d-flex justify-content-between">
         <h5 className='text-secondary'>{jobDetails.jobTitle}</h5>
-        <button className='btn btn-success'>Apply Now</button>
+        <button onClick={() => window.open(jobDetails.job_apply_link, '_blank')} className='btn btn-success'>Apply Now</button>
         </div>
        {location()}
        {JobSalaryDetails()}<br />
@@ -178,8 +180,7 @@ export default function JobItems(props) {
         { jobDetails.job_employment_type ? (<span className="badge rounded-pill bg-light text-dark my-2 mx-2">{jobDetails.job_employment_type}</span>
     ) : ''}
         <p>{jobDetails.Comp_description}</p>
-        <h6>Job Highlights</h6>
-        
+      
     </div>
 
 </div>
@@ -193,7 +194,7 @@ export default function JobItems(props) {
   </div>
 </div>
             
-          </> // Render nothing if the screen width is less than 992px
+          </> 
 
 
           

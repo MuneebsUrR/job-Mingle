@@ -27,7 +27,7 @@ export const JobDetailState = ({ children }) => {
       let response = await fetch(url, {
         method: "GET",
         headers: {
-          'X-RapidAPI-Key': 'cc1fdff712msh3a770f9d4570ad9p1de9fejsn30a7d50aeb5f',
+          'X-RapidAPI-Key': '840cf39458msh0d42c1ba0a5e456p1ab493jsnfd2536a0911f',
           'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
         }
       });

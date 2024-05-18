@@ -1,20 +1,32 @@
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const cors = require('cors');
 const User = require('./models/User');
 const { DBRef } = require('mongodb');
-const db = "mongodb+srv://muneebsurrehman:w2RtxV250m9oRMl7@cluster0.9cm4itv.mongodb.net/jobemingle";
-let PORT = process.env.PORT || 5000;
 
+
+const cors = require('cors');
 app.use(cors());
+
+
 app.use(express.json());
+
+const db = "mongodb+srv://muneebsurrehman:w2RtxV250m9oRMl7@cluster0.9cm4itv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/jobemingle";
+
+let PORT = 5000;
 //connect to mongodb atlas database
 mongoose.connect(db).then(()=>{console.log("Connection established")} ).catch((err)=>{console.log(err)});
 
-app.post('/api/register',async(req,res)=>{
+app.get('/', async(req, res) => {
+    const result = await User.find();
+    res.send(result);
+});
+
+
+app.post('/register',async(req,res)=>{
    
-    console.log(req)
+    console.log(req.body)
     try {
         const CheckExistingUser =await User.findOne({email:req.body.email , contact:req.body.contact})
         if(CheckExistingUser){return res.status(400).json( {error:"user with this email already exist"}) }
@@ -29,15 +41,18 @@ app.post('/api/register',async(req,res)=>{
             }
 
         )
-        res.json({status:"ok"})
+       
+        res.json({ status: "ok" })
+       
+        
     } catch (error) {
         res.status(500).send('Internal server error')
     }
 
 })
 
-app.post('/api/login',async(req,res)=>{
-    console.log(req)
+app.post('/login',async(req,res)=>{
+    console.log(req.body)
     try {
         const user =await User.findOne({
             email : req.body.email,
@@ -46,7 +61,8 @@ app.post('/api/login',async(req,res)=>{
 
         if(!user){
            return res.status(404).json('User not found')
-        }else if (user){
+        } else if (user) {
+           
             return res.json({status:'ok'})
         }
 
